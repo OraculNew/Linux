@@ -1,0 +1,52 @@
+oracul@oracul-VirtualBox:~$ oracul@oracul-VirtualBox:~$ pwd
+/home/oracul
+oracul@oracul-VirtualBox:~$ cd /usr/local/bin
+oracul@oracul-VirtualBox:/usr/local/bin$ pwd
+/usr/local/bin
+oracul@oracul-VirtualBox:/usr/local/bin$ cd ~
+oracul@oracul-VirtualBox:~$ cd Загрузки
+oracul@oracul-VirtualBox:~/Загрузки$ pwd
+/home/oracul/Загрузки
+oracul@oracul-VirtualBox:~/Загрузки$ cd ..
+oracul@oracul-VirtualBox:~$ pwd
+/home/oracul
+oracul@oracul-VirtualBox:~$ ls
+ Видео   Документы   Загрузки   Изображения   Музыка   Общедоступные  'Рабочий стол'   Шаблоны
+oracul@oracul-VirtualBox:~$ ls -l
+итого 32
+drwxr-xr-x 2 oracul oracul 4096 ноя 13 21:07  Видео
+drwxr-xr-x 2 oracul oracul 4096 ноя 13 21:07  Документы
+drwxr-xr-x 2 oracul oracul 4096 ноя 13 21:07  Загрузки
+drwxr-xr-x 2 oracul oracul 4096 ноя 14 19:58  Изображения
+drwxr-xr-x 2 oracul oracul 4096 ноя 13 21:07  Музыка
+drwxr-xr-x 2 oracul oracul 4096 ноя 13 21:07  Общедоступные
+drwxr-xr-x 2 oracul oracul 4096 ноя 13 21:07 'Рабочий стол'
+drwxr-xr-x 2 oracul oracul 4096 ноя 13 21:07  Шаблоны
+oracul@oracul-VirtualBox:~$ ls -a
+ .    .bash_history   .bashrc   .config   .local     .sudo_as_admin_successful   .vboxclient-display-svga-x11.pid   .vboxclient-seamless.pid   Документы   Изображения   Общедоступные   Шаблоны
+ ..   .bash_logout    .cache    .gnupg    .profile   .vboxclient-clipboard.pid   .vboxclient-draganddrop.pid        Видео                      Загрузки    Музыка       'Рабочий стол'
+oracul@oracul-VirtualBox:~$ ls -la
+итого 88
+drwxr-xr-x 14 oracul oracul 4096 ноя 18 16:57  .
+drwxr-xr-x  3 root   root   4096 ноя 13 19:33  ..
+-rw-------  1 oracul oracul  142 ноя 13 22:55  .bash_history
+-rw-r--r--  1 oracul oracul  220 ноя 13 19:33  .bash_logout
+-rw-r--r--  1 oracul oracul 3771 ноя 13 19:33  .bashrc
+drwx------ 11 oracul oracul 4096 ноя 13 22:21  .cache
+drwx------ 11 oracul oracul 4096 ноя 13 22:55  .config
+drwx------  3 oracul oracul 4096 ноя 13 21:06  .gnupg
+drwx------  3 oracul oracul 4096 ноя 13 21:06  .local
+-rw-r--r--  1 oracul oracul  807 ноя 13 19:33  .profile
+-rw-r--r--  1 oracul oracul    0 ноя 13 21:08  .sudo_as_admin_successful
+-rw-r-----  1 oracul oracul    5 ноя 18 16:57  .vboxclient-clipboard.pid
+-rw-r-----  1 oracul oracul    5 ноя 18 16:57  .vboxclient-display-svga-x11.pid
+-rw-r-----  1 oracul oracul    5 ноя 18 16:57  .vboxclient-draganddrop.pid
+-rw-r-----  1 oracul oracul    5 ноя 18 16:57  .vboxclient-seamless.pid
+drwxr-xr-x  2 oracul oracul 4096 ноя 13 21:07  Видео
+drwxr-xr-x  2 oracul oracul 4096 ноя 13 21:07  Документы
+drwxr-xr-x  2 oracul oracul 4096 ноя 13 21:07  Загрузки
+drwxr-xr-x  2 oracul oracul 4096 ноя 14 19:58  Изображения
+drwxr-xr-x  2 oracul oracul 4096 ноя 13 21:07  Музыка
+drwxr-xr-x  2 oracul oracul 4096 ноя 13 21:07  Общедоступные
+drwxr-xr-x  2 oracul oracul 4096 ноя 13 21:07 'Рабочий стол'
+drwxr-xr-x  2 oracul oracul 4096 ноя 13 21:07  Шаблоны
