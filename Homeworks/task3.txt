@@ -1,0 +1,11 @@
+sudo usermod -aG sudo test1
+
+oracul@oracul-VirtualBox:~$ cat /etc/group
+
+root:x:0:
+-//-
+sudo:x:27:oracul,test1
+-//-
+
+sudo visudo
+%sudo   ALL=(ALL:ALL) NOPASSWD:ALL
