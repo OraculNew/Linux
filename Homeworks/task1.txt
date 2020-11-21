@@ -1,0 +1,60 @@
+oracul@oracul-VirtualBox:~$ cat /etc/passwd
+
+root:x:0:0:root:/root:/bin/bash
+-//-
+oracul:x:1000:1000:oracul,,,:/home/oracul:/bin/bash
+systemd-coredump:x:999:999:systemd Core Dumper:/:/usr/sbin/nologin
+vboxadd:x:998:1::/var/run/vboxadd:/bin/false
+sshd:x:126:65534::/run/sshd:/usr/sbin/nologin
+
+oracul@oracul-VirtualBox:~$ sudo useradd test1
+[sudo] пароль для oracul:
+
+oracul@oracul-VirtualBox:~$ cat /etc/passwd
+
+root:x:0:0:root:/root:/bin/bash
+-//-
+oracul:x:1000:1000:oracul,,,:/home/oracul:/bin/bash
+systemd-coredump:x:999:999:systemd Core Dumper:/:/usr/sbin/nologin
+vboxadd:x:998:1::/var/run/vboxadd:/bin/false
+sshd:x:126:65534::/run/sshd:/usr/sbin/nologin
+test1:x:1001:1001::/home/test1:/bin/sh
+
+oracul@oracul-VirtualBox:~$ sudo userdel test1
+oracul@oracul-VirtualBox:~$ cat /etc/passwd
+
+root:x:0:0:root:/root:/bin/bash
+-//-
+oracul:x:1000:1000:oracul,,,:/home/oracul:/bin/bash
+systemd-coredump:x:999:999:systemd Core Dumper:/:/usr/sbin/nologin
+vboxadd:x:998:1::/var/run/vboxadd:/bin/false
+sshd:x:126:65534::/run/sshd:/usr/sbin/nologin
+
+oracul@oracul-VirtualBox:~$ sudo adduser test1
+Добавляется пользователь «test1» ...
+Добавляется новая группа «test1» (1001) ...
+Добавляется новый пользователь «test1» (1001) в группу «test1» ...
+Создаётся домашний каталог «/home/test1» ...
+Копирование файлов из «/etc/skel» ...
+Новый пароль :
+Повторите ввод нового пароля :
+passwd: пароль успешно обновлён
+Изменение информации о пользователе test1
+Введите новое значение или нажмите ENTER для выбора значения по умолчанию
+        Полное имя []: Вася
+        Номер комнаты []:
+        Рабочий телефон []:
+        Домашний телефон []:
+        Другое []:
+chfn: имя «Вася» содержит не ASCII-символы
+Данная информация корректна? [Y/n] y
+
+oracul@oracul-VirtualBox:~$ cat /etc/passwd
+
+root:x:0:0:root:/root:/bin/bash
+-//-
+oracul:x:1000:1000:oracul,,,:/home/oracul:/bin/bash
+systemd-coredump:x:999:999:systemd Core Dumper:/:/usr/sbin/nologin
+vboxadd:x:998:1::/var/run/vboxadd:/bin/false
+sshd:x:126:65534::/run/sshd:/usr/sbin/nologin
+test1:x:1001:1001:Вася,,,:/home/test1:/bin/bash
