@@ -1,30 +1,27 @@
-oracul@oracul-VirtualBox:~$ sudo groupadd group1
+oracul@oracul-VirtualBox:~$ sudo useradd -s /bin/bash -d /home/user1 -m user1
+oracul@oracul-VirtualBox:~$ sudo useradd -s /bin/bash -d /home/user2 -m user2
 oracul@oracul-VirtualBox:~$ cat /etc/group
 root:x:0:
 -//-
-oracul:x:1000:
-sambashare:x:132:oracul
-systemd-coredump:x:999:
-vboxsf:x:998:
-test1:x:1001:
-group1:x:1002:
+user1:x:1003:
+user2:x:1004:
 
-oracul@oracul-VirtualBox:~$ sudo usermod -g group1 test1
 oracul@oracul-VirtualBox:~$ cat /etc/passwd
 root:x:0:0:root:/root:/bin/bash
 -//-
-oracul:x:1000:1000:oracul,,,:/home/oracul:/bin/bash
-systemd-coredump:x:999:999:systemd Core Dumper:/:/usr/sbin/nologin
-vboxadd:x:998:1::/var/run/vboxadd:/bin/false
-sshd:x:126:65534::/run/sshd:/usr/sbin/nologin
-test1:x:1001:1002:Вася,,,:/home/test1:/bin/bash
+user1:x:1001:1003::/home/user1:/bin/bash
+user2:x:1002:1004::/home/user2:/bin/bash
 
-oracul@oracul-VirtualBox:~$ sudo usermod -R test1 test1
-oracul@oracul-VirtualBox:~$ cat /etc/passwd
-root:x:0:0:root:/root:/bin/bash
+oracul@oracul-VirtualBox:~$ sudo usermod -aG user1 user2
+oracul@oracul-VirtualBox:~$ cat /etc/group
+root:x:0:
 -//-
-oracul:x:1000:1000:oracul,,,:/home/oracul:/bin/bash
-systemd-coredump:x:999:999:systemd Core Dumper:/:/usr/sbin/nologin
-vboxadd:x:998:1::/var/run/vboxadd:/bin/false
-sshd:x:126:65534::/run/sshd:/usr/sbin/nologin
-test1:x:1002:Вася,,,:/home/test1:/bin/bash
+user1:x:1003:user2
+user2:x:1004:
+
+oracul@oracul-VirtualBox:~$ sudo usermod -G "" user2
+oracul@oracul-VirtualBox:~$ cat /etc/group
+root:x:0:
+-//-
+user1:x:1003:
+user2:x:1004:
