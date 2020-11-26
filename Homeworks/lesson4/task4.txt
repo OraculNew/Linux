@@ -1,0 +1,23 @@
+Задание 4. Сигналы процессам. Запустите mc. Используя ps, найдите PID процесса, завершите процесс, передав ему сигнал 9.
+oracul@oracul-VirtualBox:~$ mc
+
+oracul@oracul-VirtualBox:~$ ps a
+    PID TTY      STAT   TIME COMMAND
+  10184 tty2     Ssl+   0:00 /usr/lib/gdm3/gdm-x-session --run-script env GNOME_SHELL_SESSION_MODE=ubuntu /usr/bin/gnome-session --systemd --session=ubuntu
+  10186 tty2     Sl+    0:01 /usr/lib/xorg/Xorg vt2 -displayfd 3 -auth /run/user/1000/gdm/Xauthority -background none -noreset -keeptty -verbose 3
+  10196 tty2     Sl+    0:00 /usr/libexec/gnome-session-binary --systemd --systemd --session=ubuntu
+  11014 pts/0    Ss     0:00 -bash
+  12618 pts/0    T      0:00 sort
+  12887 pts/0    S+     0:00 mc
+  12889 pts/1    Ss     0:00 bash -rcfile .bashrc
+  12917 pts/1    R+     0:00 ps a
+
+oracul@oracul-VirtualBox:~$ kill -15 12887
+oracul@oracul-VirtualBox:~$ ps a
+    PID TTY      STAT   TIME COMMAND
+  10184 tty2     Ssl+   0:00 /usr/lib/gdm3/gdm-x-session --run-script env GNOME_SHELL_SESSION_MODE=ubuntu /usr/bin/gnome-session --systemd --session=ubuntu
+  10186 tty2     Sl+    0:01 /usr/lib/xorg/Xorg vt2 -displayfd 3 -auth /run/user/1000/gdm/Xauthority -background none -noreset -keeptty -verbose 3
+  10196 tty2     Sl+    0:00 /usr/libexec/gnome-session-binary --systemd --systemd --session=ubuntu
+  11014 pts/0    Ss     0:00 -bash
+  12618 pts/0    T      0:00 sort
+  12920 pts/0    R+     0:00 ps a

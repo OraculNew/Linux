@@ -1,0 +1,11 @@
+Задание 2. Конвейер (pipeline). Использовать команду cut на вывод длинного списка каталога, чтобы отобразить только
+права доступа к файлам. Затем отправить в конвейере этот вывод на sort и uniq, чтобы отфильтровать все повторяющиеся
+строки.
+oracul@oracul-VirtualBox:~$ ls -l | cut -d " " -f 1 | sort | uniq
+drwxr-xr-x
+-rw-rw-r--
+итого
+
+oracul@oracul-VirtualBox:~$ ls -l | cut -d " " -f 1 | sort | uniq | grep -v итого
+drwxr-xr-x
+-rw-rw-r--
