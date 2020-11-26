@@ -1,0 +1,15 @@
+Задание 1. Потоки ввода/вывода. Создать файл, используя команду echo. Используя команду cat, прочитать содержимое
+каталога etc, ошибки перенаправить в отдельный файл.
+oracul@oracul-VirtualBox:~$ echo "new file" > testfile.txt
+oracul@oracul-VirtualBox:~$ cat testfile.txt
+new file
+
+oracul@oracul-VirtualBox:~$ cat /etc/* 2> errors.log
+oracul@oracul-VirtualBox:~$ cat errors.log
+cat: /etc/acpi: Это каталог
+cat: /etc/alsa: Это каталог
+cat: /etc/alternatives: Это каталог
+cat: /etc/apm: Это каталог
+cat: /etc/apparmor: Это каталог
+cat: /etc/apparmor.d: Это каталог
+-//-

@@ -1,0 +1,39 @@
+Задание 3. Управление процессами. Изменить конфигурационный файл службы SSH: /etc/ssh/sshd_config, отключив
+аутентификацию по паролю PasswordAuthentication no. Выполните рестарт службы systemctl restart sshd
+(service sshd restart), верните аутентификацию по паролю, выполните reload службы systemctl reload sshd
+(services sshd reload). В чём различие между действиями restart и reload? Создайте файл при помощи команды
+cat > file_name, напишите текст и завершите комбинацией ctrl+d. Какой сигнал передадим процессу?
+
+oracul@oracul-VirtualBox:~$ sudo nano /etc/ssh/sshd_config
+-//-
+PasswordAuthentication no
+-//-
+
+oracul@oracul-VirtualBox:~$ ps -ef |grep sshd
+root         717       1  0 16:06 ?        00:00:00 sshd: /usr/sbin/sshd -D [listener] 0 of 10-100 startups
+oracul     12669   11014  0 17:01 pts/0    00:00:00 grep --color=auto sshd
+
+oracul@oracul-VirtualBox:~$ sudo systemctl restart sshd
+
+oracul@oracul-VirtualBox:~$ ps -ef |grep sshd
+root       12691       1  0 17:01 ?        00:00:00 sshd: /usr/sbin/sshd -D [listener] 0 of 10-100 startups
+oracul     12693   11014  0 17:01 pts/0    00:00:00 grep --color=auto sshd
+
+oracul@oracul-VirtualBox:~$ sudo nano /etc/ssh/sshd_config
+-//-
+PasswordAuthentication yes
+-//-
+
+oracul@oracul-VirtualBox:~$ sudo systemctl reload sshd
+
+oracul@oracul-VirtualBox:~$ ps -ef |grep sshd
+root       12691       1  0 17:01 ?        00:00:00 sshd: /usr/sbin/sshd -D [listener] 0 of 10-100 startups
+oracul     12707   11014  0 17:05 pts/0    00:00:00 grep --color=auto sshd
+
+restart - перезапускает процесс завершая его полностью
+reload - перезагружает процесс, идентификатор процесса остается прежним
+
+oracul@oracul-VirtualBox:~$ cat filename
+# режим ввода данных в файл, будет производиться запись с клавиатуры до нажатия ctrl+d
+
+ctrl+d - завершает процесс ввода данных в файл, при этом введенные данные сохранаются в файле
