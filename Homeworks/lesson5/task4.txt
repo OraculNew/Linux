@@ -1,0 +1,4 @@
+Задание 4. Создать пользователя, обладающего возможностью выполнять действия от имени суперпользователя.
+
+sudo useradd -s /bin/bash -m new_user
+sudo usermod -aG sudo new_user

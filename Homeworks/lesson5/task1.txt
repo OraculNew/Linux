@@ -1,0 +1,46 @@
+Задание 1. Создать файл file1 и наполнить его произвольным содержимым. Скопировать его в file2.
+Создать символическую ссылку file3 на file1. Создать жёсткую ссылку file4 на file1. Посмотреть, какие inode у файлов.
+Удалить file1. Что стало с остальными созданными файлами? Попробовать вывести их на экран.
+
+oracul@oracul-VirtualBox:~$ echo "random text" > file1.txt
+oracul@oracul-VirtualBox:~$ cat file1.txt
+random text
+
+oracul@oracul-VirtualBox:~$ cp file1.txt file2.txt
+oracul@oracul-VirtualBox:~$ cat file2.txt
+random text
+
+oracul@oracul-VirtualBox:~$ ln -s file1.txt file3.txt
+oracul@oracul-VirtualBox:~$ cat file3.txt
+random text
+
+oracul@oracul-VirtualBox:~$ ln file1.txt file4.txt
+oracul@oracul-VirtualBox:~$ cat file4.txt
+random text
+
+oracul@oracul-VirtualBox:~$ ls -li
+итого 444
+260615 -rw-rw-r-- 1 oracul oracul 392091 ноя 26 16:30  cat.log
+260616 -rw-rw-r-- 1 oracul oracul   5691 ноя 26 16:32  errors.log
+263145 -rw-rw-r-- 2 oracul oracul     12 дек  1 09:17  file1.txt
+263150 -rw-rw-r-- 1 oracul oracul     12 дек  1 09:18  file2.txt
+263381 lrwxrwxrwx 1 oracul oracul      9 дек  1 09:20  file3.txt -> file1.txt
+263145 -rw-rw-r-- 2 oracul oracul     12 дек  1 09:17  file4.txt
+261522 -rw-rw-r-- 1 oracul oracul     20 ноя 26 17:08  filename
+-//-
+
+oracul@oracul-VirtualBox:~$ rm file1.txt
+oracul@oracul-VirtualBox:~$ ls -li
+итого 440
+260615 -rw-rw-r-- 1 oracul oracul 392091 ноя 26 16:30  cat.log
+260616 -rw-rw-r-- 1 oracul oracul   5691 ноя 26 16:32  errors.log
+263150 -rw-rw-r-- 1 oracul oracul     12 дек  1 09:18  file2.txt
+263381 lrwxrwxrwx 1 oracul oracul      9 дек  1 09:20  file3.txt -> file1.txt # выделено красным цветом
+263145 -rw-rw-r-- 1 oracul oracul     12 дек  1 09:17  file4.txt
+261522 -rw-rw-r-- 1 oracul oracul     20 ноя 26 17:08  filename
+-//-
+
+oracul@oracul-VirtualBox:~$ cat file*
+random text
+cat: file3.txt: Нет такого файла или каталога
+random text

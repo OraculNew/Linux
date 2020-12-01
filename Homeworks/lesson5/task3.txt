@@ -1,0 +1,14 @@
+Задание 3. Создать два произвольных файла. Первому присвоить права на чтение и запись для владельца и группы,
+только на чтение — для всех. Второму присвоить права на чтение и запись только для владельца. Сделать это в численном
+и символьном виде.
+oracul@oracul-VirtualBox:~$ touch data1.txt
+oracul@oracul-VirtualBox:~$ touch data2.txt
+oracul@oracul-VirtualBox:~$ ls -l | grep data
+-rw-rw-r-- 1 oracul oracul    0 дек  1 10:50 data1.txt
+-rw-rw-r-- 1 oracul oracul    0 дек  1 10:50 data2.txt
+
+oracul@oracul-VirtualBox:~$ chmod ug=rw,o=r data1.txt
+oracul@oracul-VirtualBox:~$ chmod u=rw,go= data2.txt
+oracul@oracul-VirtualBox:~$ ls -l | grep data
+-rw-rw-r-- 1 oracul oracul    0 дек  1 10:50 data1.txt
+-rw------- 1 oracul oracul    0 дек  1 10:50 data2.txt
