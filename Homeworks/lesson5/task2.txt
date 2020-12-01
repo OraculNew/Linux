@@ -1,2 +1,25 @@
 Задание 2. Дать созданным файлам другие, произвольные имена. Создать новую символическую ссылку.
 Переместить ссылки в другую директорию.
+
+oracul@oracul-VirtualBox:~$ mv file2.txt file2_2.txt
+oracul@oracul-VirtualBox:~$ mv file3.txt file3_3.txt
+oracul@oracul-VirtualBox:~$ mv file4.txt file4_4.txt
+
+oracul@oracul-VirtualBox:~$ ln -s file2_2 file2_2.link
+oracul@oracul-VirtualBox:~$ mkdir test
+oracul@oracul-VirtualBox:~$ ls -l
+итого 44
+lrwxrwxrwx 1 oracul oracul    7 дек  1 09:43  file2_2.link -> file2_2
+-rw-rw-r-- 1 oracul oracul   12 дек  1 09:18  file2_2.txt
+lrwxrwxrwx 1 oracul oracul    9 дек  1 09:20  file3_3.txt -> file1.txt
+-rw-rw-r-- 1 oracul oracul   12 дек  1 09:17  file4_4.txt
+drwxrwxr-x 2 oracul oracul 4096 дек  1 09:43  test
+-//-
+
+oracul@oracul-VirtualBox:~$ mv file2_2.link test
+oracul@oracul-VirtualBox:~$ mv file4_4.txt test
+oracul@oracul-VirtualBox:~$ ls -l ./test/
+итого 4
+lrwxrwxrwx 1 oracul oracul  7 дек  1 09:43 file2_2.link -> file2_2
+-rw-rw-r-- 1 oracul oracul 12 дек  1 09:17 file4_4.txt
+
