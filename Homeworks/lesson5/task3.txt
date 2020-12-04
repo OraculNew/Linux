@@ -12,3 +12,12 @@ oracul@oracul-VirtualBox:~$ chmod u=rw,go= data2.txt
 oracul@oracul-VirtualBox:~$ ls -l | grep data
 -rw-rw-r-- 1 oracul oracul    0 дек  1 10:50 data1.txt
 -rw------- 1 oracul oracul    0 дек  1 10:50 data2.txt
+
+oracul@oracul-VirtualBox:~$ chmod 0 data1.txt
+oracul@oracul-VirtualBox:~$ chmod 0 data2.txt
+
+oracul@oracul-VirtualBox:~$ chmod 664 data1.txt
+oracul@oracul-VirtualBox:~$ chmod 600 data2.txt
+oracul@oracul-VirtualBox:~$ ls -l | grep data
+-rw-rw-r-- 1 oracul oracul    0 дек  4 14:50 data1.txt
+-rw------- 1 oracul oracul    0 дек  4 14:50 data2.txt
