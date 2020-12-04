@@ -1,0 +1,48 @@
+2. Создать однострочный скрипт, который создаст директории для нескольких годов (2010–2017), в них — поддиректории
+для месяцев (от 01 до 12), и в каждый из них запишет несколько файлов с произвольными записями. Например, 001.txt,
+содержащий текст «Файл 001», 002.txt с текстом «Файл 002» и т. д.
+
+oracul@oracul-VirtualBox:~$ cat > task2.sh
+for year in {2010..2017}
+do
+ mkdir $year
+ for month in {1..12}
+  do
+   mkdir $year/$month
+   for n in {1..7}
+   do
+    echo File $n > $year/$month/$n.txt
+   done
+  done
+done
+oracul@oracul-VirtualBox:~$ cat task2.sh
+for year in {2010..2017}
+do
+ mkdir $year
+ for month in {1..12}
+  do
+   mkdir $year/$month
+   for n in {1..7}
+   do
+    echo File $n > $year/$month/$n.txt
+   done
+  done
+done
+oracul@oracul-VirtualBox:~$ chmod +x task2.sh
+oracul@oracul-VirtualBox:~$ ./task2.sh
+oracul@oracul-VirtualBox:~$ ls -l
+итого 80
+drwxrwxr-x 14 oracul oracul 4096 дек  4 12:38  2010
+drwxrwxr-x 14 oracul oracul 4096 дек  4 12:38  2011
+drwxrwxr-x 14 oracul oracul 4096 дек  4 12:38  2012
+drwxrwxr-x 14 oracul oracul 4096 дек  4 12:38  2013
+drwxrwxr-x 14 oracul oracul 4096 дек  4 12:38  2014
+drwxrwxr-x 14 oracul oracul 4096 дек  4 12:38  2015
+drwxrwxr-x 14 oracul oracul 4096 дек  4 12:38  2016
+drwxrwxr-x 14 oracul oracul 4096 дек  4 12:38  2017
+-//-
+
+oracul@oracul-VirtualBox:~$ ls 2010/
+1  10  11  12  2  3  4  5  6  7  8  9
+oracul@oracul-VirtualBox:~$ ls 2010/1/
+1.txt  2.txt  3.txt  4.txt  5.txt  6.txt  7.txt
