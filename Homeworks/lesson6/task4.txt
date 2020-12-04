@@ -1,0 +1,17 @@
+4. Используя grep, проанализировать файл /var/log/syslog, отобрав события на своё усмотрение.
+
+oracul@oracul-VirtualBox:~$ grep -i nice /var/log/syslog
+Dec  4 11:49:27 oracul-VirtualBox kernel: [   30.413328] audit: type=1400 audit(1607071767.631:37): apparmor="DENIED" operation="capable" profile="/usr/sbin/cups-browsed" pid=661 comm="cups-browsed" capability=23  capname="sys_nice"
+Dec  4 11:49:51 oracul-VirtualBox rtkit-daemon[957]: Successfully made thread 945 of process 945 owned by '1000' high priority at nice level -11.
+Dec  4 11:49:51 oracul-VirtualBox tracker-miner-f[948]: Setting priority nice level to 19
+Dec  4 11:49:51 oracul-VirtualBox tracker-extract[946]: Setting priority nice level to 19
+Dec  4 12:03:00 oracul-VirtualBox tracker-extract[1918]: Setting priority nice level to 19
+Dec  4 12:25:01 oracul-VirtualBox tracker-extract[2310]: Setting priority nice level to 19
+Dec  4 12:25:51 oracul-VirtualBox tracker-extract[2346]: Setting priority nice level to 19
+Dec  4 12:27:01 oracul-VirtualBox tracker-extract[2376]: Setting priority nice level to 19
+Dec  4 12:32:24 oracul-VirtualBox tracker-extract[3469]: Setting priority nice level to 19
+Dec  4 12:32:43 oracul-VirtualBox tracker-extract[3494]: Setting priority nice level to 19
+Dec  4 12:33:08 oracul-VirtualBox tracker-extract[3532]: Setting priority nice level to 19
+Dec  4 12:34:15 oracul-VirtualBox tracker-extract[3578]: Setting priority nice level to 19
+Dec  4 12:35:17 oracul-VirtualBox tracker-extract[3605]: Setting priority nice level to 19
+Dec  4 12:36:24 oracul-VirtualBox tracker-extract[3635]: Setting priority nice level to 19
