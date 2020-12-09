@@ -1,0 +1,59 @@
+Подключить репозиторий с nginx любым удобным способом, установить nginx и потом удалить nginx, используя утилиту dpkg.
+
+oracul@oracul-VirtualBox:~$ cd /etc/apt/
+oracul@oracul-VirtualBox:/etc/apt$ nano sources.list
+oracul@oracul-VirtualBox:/etc/apt$ sudo nano sources.list
+  GNU nano 4.8                                                                                                    sources.list
+#deb cdrom:[Ubuntu 20.04.1 LTS _Focal Fossa_ - Release amd64 (20200731)]/ focal main restricted
+deb http://nginx.org/packages/ubuntu focal nginx
+-//-
+
+oracul@oracul-VirtualBox:/etc/apt$ sudo apt install curl
+
+oracul@oracul-VirtualBox:/etc/apt$ curl -fsSL https://nginx.org/keys/nginx_signing.key | sudo apt-key add -
+OK
+
+oracul@oracul-VirtualBox:/etc/apt$ sudo apt update
+Сущ:1 http://ru.archive.ubuntu.com/ubuntu focal-updates InRelease
+Сущ:2 http://ru.archive.ubuntu.com/ubuntu focal InRelease
+Пол:3 http://ru.archive.ubuntu.com/ubuntu focal-backports InRelease [101 kB]
+Сущ:4 http://security.ubuntu.com/ubuntu focal-security InRelease
+Пол:5 http://nginx.org/packages/ubuntu focal InRelease [2 843 B]
+Пол:6 http://nginx.org/packages/ubuntu focal/nginx amd64 Packages [7 204 B]
+Получено 111 kB за 1с (219 kB/s)
+Чтение списков пакетов… Готово
+Построение дерева зависимостей
+Чтение информации о состоянии… Готово
+Может быть обновлено 28 пакетов. Запустите «apt list --upgradable» для их показа.
+N: Пропускается получение настроенного файла «nginx/binary-i386/Packages», так как репозиторий
+«http://nginx.org/packages/ubuntu focal InRelease» не поддерживает архитектуру «i386»
+
+oracul@oracul-VirtualBox:/etc/apt$ sudo apt install nginx
+
+oracul@oracul-VirtualBox:/etc/apt$ sudo apt-add-repository ppa:nginx/stable
+ This PPA contains the latest Stable Release version of the nginx web server software.
+
+**Only Non-End-of-Life Ubuntu Releases are supported in this PPA**
+
+**Development releases of Ubuntu are not officially supported by this PPA, and uploads for those will not be available until actual final releases for those versions**
+ Больше информации: https://launchpad.net/~nginx/+archive/ubuntu/stable
+Нажмите [ENTER] для продолжения или Ctrl-C, чтобы отменить добавление.
+
+Сущ:1 http://ru.archive.ubuntu.com/ubuntu focal-updates InRelease
+Сущ:2 http://ru.archive.ubuntu.com/ubuntu focal InRelease
+Пол:3 http://ru.archive.ubuntu.com/ubuntu focal-backports InRelease [101 kB]
+Сущ:4 http://nginx.org/packages/ubuntu focal InRelease
+Сущ:5 http://security.ubuntu.com/ubuntu focal-security InRelease
+Пол:6 http://ppa.launchpad.net/nginx/stable/ubuntu focal InRelease [17,5 kB]
+Пол:7 http://ppa.launchpad.net/nginx/stable/ubuntu focal/main i386 Packages [1 224 B]
+Пол:8 http://ppa.launchpad.net/nginx/stable/ubuntu focal/main amd64 Packages [4 944 B]
+Пол:9 http://ppa.launchpad.net/nginx/stable/ubuntu focal/main Translation-en [4 572 B]
+Получено 129 kB за 1с (113 kB/s)
+Чтение списков пакетов… Готово
+N: Пропускается получение настроенного файла «nginx/binary-i386/Packages», так как репозиторий
+«http://nginx.org/packages/ubuntu focal InRelease» не поддерживает архитектуру «i386»
+
+oracul@oracul-VirtualBox:/etc/apt$ sudo dpkg -r nginx
+(Чтение базы данных … на данный момент установлено 193912 файлов и каталогов.)
+Удаляется nginx (1.18.0-2~focal) …
+Обрабатываются триггеры для man-db (2.9.1-1) …
