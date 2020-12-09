@@ -1,0 +1,3 @@
+Установить пакет на свой выбор, используя snap.
+oracul@oracul-VirtualBox:/$ sudo snap install pdfmixtool
+pdfmixtool 0.6 от Marco Scarpetta (scarpetta) установлен
