@@ -1,0 +1,21 @@
+Запустить контейнер с Ubuntu
+
+oracul@oracul-VirtualBox:~$ docker search nginx
+oracul@oracul-VirtualBox:~$ docker pull nginx
+oracul@oracul-VirtualBox:/$ docker run -d --name nginx -p 80:80 -v /var/www/html:/usr/share/nginx/html nginx
+787c4ef53f5f0c0b733ffdb1a6a02cb9d4a170804489a2d7d4ce1d5fde089412
+
+oracul@oracul-VirtualBox:/$ docker ps
+CONTAINER ID   IMAGE     COMMAND                  CREATED          STATUS          PORTS                NAMES
+787c4ef53f5f   nginx     "/docker-entrypoint.…"   30 seconds ago   Up 29 seconds   0.0.0.0:80->80/tcp   nginx
+
+oracul@oracul-VirtualBox:/$ docker stop nginx
+nginx
+
+oracul@oracul-VirtualBox:/$ docker ps
+CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES
+
+oracul@oracul-VirtualBox:/$ docker container ps -a
+CONTAINER ID   IMAGE         COMMAND                  CREATED              STATUS                      PORTS     NAMES
+787c4ef53f5f   nginx         "/docker-entrypoint.…"   About a minute ago   Exited (0) 23 seconds ago             nginx
+ec6a46e8ca53   hello-world   "/hello"                 8 minutes ago        Exited (0) 8 minutes ago              interesting_torvalds
