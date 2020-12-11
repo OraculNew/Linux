@@ -1,0 +1,34 @@
+Переустановить операционную систему, подключить репозиторий Docker.
+oracul@oracul-VirtualBox:~$ sudo apt install apt-transport-https ca-certificates curl gnupg-agent software-properties-common -y
+oracul@oracul-VirtualBox:~$ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+OK
+oracul@oracul-VirtualBox:~$ sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+oracul@oracul-VirtualBox:~$ sudo apt update
+oracul@oracul-VirtualBox:~$ sudo apt install docker-ce -y
+oracul@oracul-VirtualBox:~$ sudo systemctl status docker
+● docker.service - Docker Application Container Engine
+     Loaded: loaded (/lib/systemd/system/docker.service; enabled; vendor preset: enabled)
+     Active: active (running) since Fri 2020-12-11 15:05:07 MSK; 30s ago
+TriggeredBy: ● docker.socket
+       Docs: https://docs.docker.com
+   Main PID: 3475 (dockerd)
+      Tasks: 8
+     Memory: 41.9M
+     CGroup: /system.slice/docker.service
+             └─3475 /usr/bin/dockerd -H fd:// --containerd=/run/containerd/containerd.sock
+
+дек 11 15:05:06 oracul-VirtualBox dockerd[3475]: time="2020-12-11T15:05:06.946950896+03:00" level=warning msg="Your kernel does not support CPU realtime scheduler"
+дек 11 15:05:06 oracul-VirtualBox dockerd[3475]: time="2020-12-11T15:05:06.947042232+03:00" level=warning msg="Your kernel does not support cgroup blkio weight"
+дек 11 15:05:06 oracul-VirtualBox dockerd[3475]: time="2020-12-11T15:05:06.947126580+03:00" level=warning msg="Your kernel does not support cgroup blkio weight_device"
+дек 11 15:05:06 oracul-VirtualBox dockerd[3475]: time="2020-12-11T15:05:06.947392166+03:00" level=info msg="Loading containers: start."
+дек 11 15:05:07 oracul-VirtualBox dockerd[3475]: time="2020-12-11T15:05:07.168243055+03:00" level=info msg="Default bridge (docker0) is assigned with an IP address 172.17.0.0/16. Daemon option --bip can be used to set a preferred IP a>
+дек 11 15:05:07 oracul-VirtualBox dockerd[3475]: time="2020-12-11T15:05:07.356492482+03:00" level=info msg="Loading containers: done."
+дек 11 15:05:07 oracul-VirtualBox dockerd[3475]: time="2020-12-11T15:05:07.851500017+03:00" level=info msg="Docker daemon" commit=eeddea2 graphdriver(s)=overlay2 version=20.10.0
+дек 11 15:05:07 oracul-VirtualBox dockerd[3475]: time="2020-12-11T15:05:07.851586848+03:00" level=info msg="Daemon has completed initialization"
+дек 11 15:05:07 oracul-VirtualBox systemd[1]: Started Docker Application Container Engine.
+дек 11 15:05:07 oracul-VirtualBox dockerd[3475]: time="2020-12-11T15:05:07.991446029+03:00" level=info msg="API listen on /run/docker.sock"
+
+oracul@oracul-VirtualBox:~$ sudo docker run hello-world
+
+oracul@oracul-VirtualBox:~$ sudo usermod -aG docker oracul
+
